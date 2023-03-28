@@ -13,9 +13,10 @@ on:
       kernel_source:
         description: "Select the kernel source"
         required: false
-        default: "unifreq"
+        default: "intxzt"
         type: choice
         options:
+          - intxzt
           - unifreq
       kernel_version:
         description: "Select kernel version"
