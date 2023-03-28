@@ -8,7 +8,11 @@
 
 # ------------------------------- Main source started -------------------------------
 #
-# Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
+# Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
+cd package/lean
+rm -rf luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+cd ../../
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
 # Add autocore support for armvirt
@@ -32,6 +36,7 @@ sed -i 's/192.168.1.1/192.168.3.254/g' package/base-files/files/bin/config_gener
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Add luci-app-openclash
+rm -rf package/luci-app-openclash
 mkdir package/luci-app-openclash
 cd package/luci-app-openclash
 git init
